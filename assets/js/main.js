@@ -92,6 +92,12 @@ posts.forEach(post => {
    containerEl.insertAdjacentElement('beforeend', finalMarkup);
 });
 
+// select the button from DOM
+const likeBtnElement = document.querySelectorAll('.like-button');
+
+likeBtnElement.forEach(btn => {
+   btn.addEventListener('click', likeBtnListen(btn));
+})
 
 
 /* FUNCTIONS */
@@ -197,4 +203,12 @@ function createPostFooter(postElements) {
    console.log(postFooterMarkup);
    return postFooterMarkup;
 
+}
+
+
+// function event to button
+function likeBtnListen(likeBtn) {
+
+likeBtn.classList.toggle('like-button--liked');
+  
 }
