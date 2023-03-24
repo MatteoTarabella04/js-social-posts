@@ -81,15 +81,39 @@ const posts = [
    }
 ];
 
-createPost();
+// loop inside the array and retrieve the functions
+posts.forEach(post => {
+   createPost();
+   createPostHeader(post);
+});
+
+
 
 /* FUNCTIONS */
 
 // function create a post
-function createPost(postElement){
+function createPost(postElements) {
    const thisPost = document.createElement('div');
    thisPost.classList.add('post');
    console.log(thisPost);
    return thisPost;
+}
 
+// function create post header
+function createPostHeader(postElements) {
+   const postHeaderMarkup = `
+   <div class="post__header">
+      div class="post-meta">
+         <div class="post-meta__icon">
+            <img class="profile-pic" src="${postElements.author.image}" alt="${postElements.author.name}">
+         </div>
+         <div class="post-meta__data">
+            <div class="post-meta__author">${postElements.author.name}</div>
+            <div class="post-meta__time">${postElements.created}</div>
+         </div>
+      </div>
+   </div>
+   `
+   console.log(postHeaderMarkup);
+   return postHeaderMarkup;
 }
