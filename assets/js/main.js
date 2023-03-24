@@ -107,12 +107,28 @@ function createPost(postElements) {
 
 // function create post header
 function createPostHeader(postElements) {
-   const postHeaderMarkup = `
+
+   // create markup variable with let for modify it throught conditions 
+   let postHeaderMarkup = `
    <div class="post__header">
       <div class="post-meta">
-         <div class="post-meta__icon">
-            <img class="profile-pic" src="${postElements.author.image}" alt="${postElements.author.name}">
-         </div>
+         <div class="post-meta__icon">`;
+
+   // condition if the image is not cracked/null
+   if (postElements.author.image != null) {
+      postHeaderMarkup += `<img class="profile-pic" src="${postElements.author.image}" alt="${postElements.author.name}">`
+
+   } else {
+      // add markup for cracked images with initials of author's name
+      postHeaderMarkup += `
+      <div class="profile-pic-default">
+         <b> ${nameInitials(postElements.author.name)} </b>
+      </div>`
+   }
+
+   // add final part of markup
+   postHeaderMarkup += `
+      </div>
          <div class="post-meta__data">
             <div class="post-meta__author">${postElements.author.name}</div>
             <div class="post-meta__time">${postElements.created}</div>
@@ -122,6 +138,17 @@ function createPostHeader(postElements) {
    `
    console.log(postHeaderMarkup);
    return postHeaderMarkup;
+}
+
+// function get initials of name author
+function nameInitials(authorName) {
+   const nameArray = authorName.split(' ');
+   console.log(nameArray);
+   const initialsArray = nameArray.map(string => {
+      return string.charAt(0).toUpperCase();
+   })
+   const nameAuthorInitials = initialsArray.join('');
+   return nameAuthorInitials;
 }
 
 // function create post text
