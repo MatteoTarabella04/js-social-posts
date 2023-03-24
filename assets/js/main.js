@@ -85,6 +85,7 @@ const posts = [
 posts.forEach(post => {
    createPost();
    createPostHeader(post);
+   createPostText(post)
 });
 
 
@@ -116,4 +117,15 @@ function createPostHeader(postElements) {
    `
    console.log(postHeaderMarkup);
    return postHeaderMarkup;
+}
+
+// function create post text
+function createPostText(text) {
+   const postTextMarkup = `
+   <div class="post__text">
+      ${text.content}
+   </div>
+   `
+   console.log(postTextMarkup);
+   return postTextMarkup
 }
