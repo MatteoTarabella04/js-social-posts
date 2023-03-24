@@ -158,7 +158,7 @@ function createPostFooter(postElements) {
             </a>
          </div>
          <div class="likes__counter">
-            Piace a <b id="like-counter-1" class="js-likes-counter">${postElements.likes}</b> persone
+            Piace a <b id="like-counter-${postElements.id}" class="js-likes-counter">${postElements.likes}</b> persone
          </div>
       </div>
    </div>
