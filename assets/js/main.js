@@ -85,7 +85,8 @@ const posts = [
 posts.forEach(post => {
    createPost();
    createPostHeader(post);
-   createPostText(post)
+   createPostText(post);
+   createPostImage(post);
 });
 
 
@@ -128,4 +129,17 @@ function createPostText(text) {
    `
    console.log(postTextMarkup);
    return postTextMarkup
+}
+
+// function create post image
+function createPostImage(image) {
+   const postImgMarkup = `
+   <div class="post__image">
+      <img src="${image.media}" alt="">
+   </div>
+   `
+
+   console.log(postImgMarkup);
+   return postImgMarkup;
+
 }
