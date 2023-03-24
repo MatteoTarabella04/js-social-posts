@@ -81,13 +81,15 @@ const posts = [
    }
 ];
 
+
+// select the container from DOM
+const containerEl = document.getElementById('container');
+
 // loop inside the array and retrieve the functions
 posts.forEach(post => {
-   createPost();
-   createPostHeader(post);
-   createPostText(post);
-   createPostImage(post);
-   createPostFooter(post);
+   // create variable fot final markup element
+   const finalMarkup = createPost(post);
+   containerEl.insertAdjacentElement('beforeend', finalMarkup);
 });
 
 
@@ -98,6 +100,7 @@ posts.forEach(post => {
 function createPost(postElements) {
    const thisPost = document.createElement('div');
    thisPost.classList.add('post');
+   thisPost.innerHTML += createPostHeader(postElements) + createPostText(postElements) + createPostImage(postElements) + createPostFooter(postElements);
    console.log(thisPost);
    return thisPost;
 }
@@ -106,7 +109,7 @@ function createPost(postElements) {
 function createPostHeader(postElements) {
    const postHeaderMarkup = `
    <div class="post__header">
-      div class="post-meta">
+      <div class="post-meta">
          <div class="post-meta__icon">
             <img class="profile-pic" src="${postElements.author.image}" alt="${postElements.author.name}">
          </div>
