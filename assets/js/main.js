@@ -3,7 +3,7 @@ Descrizione
 Ricreiamo un feed social aggiungendo al layout di base fornito, il nostro script JS in cui:
 
 Milestone 1
- Creiamo il nostro array di oggetti che rappresentano ciascun post.
+Creiamo il nostro array di oggetti che rappresentano ciascun post.
 Ogni post dovrà avere le informazioni necessarie per stampare la relativa card:
 id del post, numero progressivo da 1 a n
 nome autore,
@@ -80,3 +80,16 @@ const posts = [
       "created": "2021-03-05"
    }
 ];
+
+createPost();
+
+/* FUNCTIONS */
+
+// function create a post
+function createPost(postElement){
+   const thisPost = document.createElement('div');
+   thisPost.classList.add('post');
+   console.log(thisPost);
+   return thisPost;
+
+}
